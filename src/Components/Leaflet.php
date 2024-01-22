@@ -15,6 +15,8 @@ class Leaflet extends Component
 
     public int $maxZoomLevel;
 
+    public bool $zoomControl;
+
     public array $centerPoint;
 
     public array $markers;
@@ -36,6 +38,7 @@ class Leaflet extends Component
         $markers = [],
         $zoomLevel = 13,
         $maxZoomLevel = 18,
+        $zoomControl = true,
         $tileHost = 'openstreetmap',
         $id = self::DEFAULTMAPID,
         $attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors, Imagery © Mapbox.com',
@@ -47,6 +50,7 @@ class Leaflet extends Component
         $this->centerPoint = $centerPoint;
         $this->zoomLevel = $zoomLevel;
         $this->maxZoomLevel = $maxZoomLevel;
+        $this->zoomControl = $zoomControl;
         $this->markers = $markers;
         $this->tileHost = $tileHost;
         $this->mapId = $id;
