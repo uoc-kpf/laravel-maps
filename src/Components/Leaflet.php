@@ -27,6 +27,10 @@ class Leaflet extends Component
 
     public string $leafletVersion;
 
+    public array $boundsCorner1;
+
+    public array $boundsCorner2;
+
     public function __construct(
         $centerPoint = [0,0],
         $markers = [],
@@ -36,6 +40,8 @@ class Leaflet extends Component
         $id = self::DEFAULTMAPID,
         $attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors, Imagery © Mapbox.com',
         $leafletVersion = "latest",
+        $boundsCorner1 = [],
+        $boundsCorner2 = []
     )
     {
         $this->centerPoint = $centerPoint;
@@ -46,6 +52,8 @@ class Leaflet extends Component
         $this->mapId = $id;
         $this->attribution = $attribution;
         $this->leafletVersion = $leafletVersion;
+        $this->boundsCorner1 = $boundsCorner1;
+        $this->boundsCorner2 = $boundsCorner2;
     }
 
     public function render() : View
@@ -65,7 +73,9 @@ class Leaflet extends Component
             'tileHost' => $this->tileHost,
             'mapId' => $this->mapId === self::DEFAULTMAPID ? Str::random() : $this->mapId,
             'attribution' => $this->attribution,
-            'leafletVersion' => $this->leafletVersion ?? "1.7.1"
+            'leafletVersion' => $this->leafletVersion ?? "1.7.1",
+            'boundsCorner1' => $this->boundsCorner1,
+            'boundsCorner2' => $this->boundsCorner2
         ]);
     }
 }
