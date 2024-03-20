@@ -15,6 +15,8 @@ class Leaflet extends Component
 
     public int $maxZoomLevel;
 
+    public int $minZoomLevel;
+
     public bool $zoomControl;
 
     public array $centerPoint;
@@ -38,6 +40,7 @@ class Leaflet extends Component
         $markerLayers = [],
         $zoomLevel = 13,
         $maxZoomLevel = 18,
+        $minZoomLevel = 0,
         $zoomControl = true,
         $tileHost = 'openstreetmap',
         $id = self::DEFAULTMAPID,
@@ -50,6 +53,7 @@ class Leaflet extends Component
         $this->centerPoint = $centerPoint;
         $this->zoomLevel = $zoomLevel;
         $this->maxZoomLevel = $maxZoomLevel;
+        $this->minZoomLevel = $minZoomLevel;
         $this->zoomControl = $zoomControl;
         $this->markerLayers = $markerLayers;
         $this->tileHost = $tileHost;
@@ -66,6 +70,7 @@ class Leaflet extends Component
             'centerPoint' => $this->centerPoint,
             'zoomLevel' => $this->zoomLevel,
             'maxZoomLevel' => $this->maxZoomLevel,
+            'minZoomLevel' => $this->minZoomLevel,
             'markers' => $this->markerLayers,
             'tileHost' => $this->tileHost,
             'mapId' => $this->mapId === self::DEFAULTMAPID ? Str::random() : $this->mapId,
